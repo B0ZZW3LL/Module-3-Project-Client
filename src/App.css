@@ -1,8 +1,11 @@
 .App {
   text-align: center;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +38,34 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.welcome-title {
+  text-shadow: 8px 8px 8px rgba(0, 0, 255, 0.794);
+  text-align: center;
+  font-size: 64px;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: rgba(0, 0, 0, 0.734);
 }
+
+.signup {
+  border: solid 2px red;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.form-label {
+  color: rgba(7, 7, 7, 0.52);
+}
+
+button {
+  height: 40px;
+}
+
+
+
+
+
+
+
