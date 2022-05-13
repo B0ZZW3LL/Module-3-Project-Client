@@ -63,11 +63,19 @@ button {
 }
 
 .pantry-list {
-  border: 2px solid blue;
+  border: 6px solid black;
+}
+
+.addpantry {
+  border: 6px solid rgb(49, 26, 198);
 }
 
 .welcome-component {
   border: 4px solid red;
+}
+
+.card-title {
+  color: rgba(130, 121, 121, 0.874)
 }
 
 

@@ -25,7 +25,7 @@ function AddPantry(props) {
   }
 
   return(
-    <form onSubmit={handleSubmit}>  
+    <form className="addpantry" onSubmit={handleSubmit}>  
         <div className="form-floating mb-3">
           <input type="text" className="form-control" id="name" placeholder="Enter name" name="name" value={pantryName} onChange={(e) => setPantryName(e.target.value)} />
           <label htmlFor="name"className="form-label">Pantry Name</label>
