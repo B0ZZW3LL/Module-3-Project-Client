@@ -1,7 +1,9 @@
 import Navbar from "../components/Navbar";
-import PantryList from "../components/PantryList";
+import PantryList from "../components/pantry/PantryList";
+
 
 function ManagePage() {
+  
 
   return(
     <div>

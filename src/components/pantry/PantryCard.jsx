@@ -2,11 +2,13 @@ import axios from "axios"
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 const API_URL ="http://localhost:5005/pantry";
 
-const storedToken = localStorage.getItem('authToken');
 
 function PantryCard({ name, _id, refreshPantries }) {
+
+  const storedToken = localStorage.getItem('authToken');
 
   const [ isEditing, setIsEditing ] = useState(false);
   const [ pantryName, setPantryName ] = useState(name);
@@ -28,6 +30,8 @@ function PantryCard({ name, _id, refreshPantries }) {
   // Handle pantry deletion //
   const deletePantry = () => {
 
+    const storedToken = localStorage.getItem('authToken');
+
     axios.delete(`${API_URL}/delete/${_id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       console.log(response);
@@ -43,7 +47,10 @@ function PantryCard({ name, _id, refreshPantries }) {
           <div className="d-grid gap-2 col-8 mx-auto">
           { !isEditing ? (
               <>
-                <button className="btn btn-outline-success">Manage</button>
+                <Link to={`/manage/${_id}`}>
+                  <button className="btn btn-outline-success">Manage</button>
+                </Link>  
+                {/* <button className="btn btn-outline-success">Manage</button> */}
                 <button className="btn btn-outline-success" onClick={() => {setIsEditing(true)}}>Change Name</button>
                 <button className="btn btn-outline-success" onClick={deletePantry}>Delete</button>
               </>

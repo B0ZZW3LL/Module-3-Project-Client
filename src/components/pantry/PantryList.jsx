@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
-import { AuthContext } from '../context/auth.context';
+import { AuthContext } from '../../context/auth.context';
 
-import Welcome from './Welcome';
+import Welcome from '../Welcome';
 import PantryCard from './PantryCard';
 import AddPantry from './AddPantry';
 
