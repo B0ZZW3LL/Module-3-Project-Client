@@ -18,6 +18,7 @@ function PantryList() {
   const storedToken = localStorage.getItem('authToken');
   
   const getUserPantries = () => {
+
     axios.get(`${API_URL}/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
     .then((response) => {
       const responseArray = response.data;
@@ -31,11 +32,11 @@ function PantryList() {
   }, [] );
   
   return ( 
-    <div>
+    <div className='pantry-list'>
       <Welcome />
       <h1>Pantry List Component...</h1>
       <AddPantry user={user} refreshPantries={getUserPantries}/>
-      { pantryArray && pantryArray.map((pantry) => <PantryCard key={pantry._id} {...pantry} />)}
+      { pantryArray && pantryArray.map((pantry) => <PantryCard key={pantry._id} {...pantry} refreshPantries={getUserPantries} />)}
     </div>
   )
 }

@@ -6,7 +6,7 @@ function Welcome() {
   const { user } = useContext(AuthContext)
 
   return (
-    <div>
+    <div className='welcome-component'>
       { user && (
         <div>
           <h2>Welcome, {user.displayName}</h2>
