@@ -52,13 +52,13 @@ function SignupPage() {
 
   return(
 
-    <div className='signup'>
+    <div className='signup navbar-dark bg-dark'>
 
       <Container>
         
         <h2>Signup</h2>
 
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} >
 
           <div className="form-floating mb-3">
             <input type="text" className="form-control" id="displayname" placeholder="Enter Display Name" name="displayName" value={formState.displayName} onChange={handleSetFormState} />
@@ -81,7 +81,7 @@ function SignupPage() {
           </div>
 
           <div className="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" className="btn btn-primary">Signup</button>
+            <button type="submit" className="btn btn-outline-success">Signup</button>
           </div>
 
         </form>
@@ -91,7 +91,7 @@ function SignupPage() {
         
         <Link to="/login">
           <div className="d-grid gap-2 col-6 mx-auto">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn btn-outline-success">Login</button>
           </div>
         </Link>
        

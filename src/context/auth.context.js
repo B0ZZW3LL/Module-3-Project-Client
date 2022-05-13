@@ -10,12 +10,10 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
-  
   // Handle JWT token local storage when received from backend //
   const storeToken = (token) => {
     localStorage.setItem('authToken', token);
   } 
-
 
   // Handle user/JWT token validation //
   const authenticateUser = () => {
@@ -45,23 +43,19 @@ function AuthProviderWrapper(props) {
     }
   }
 
-
   const removeToken = () => {
     localStorage.removeItem('authToken');
   }
-
 
   const logOutUser = () => {
     removeToken();            // <-- drop token from localstorage
     authenticateUser();       // <-- run, now without token - state variables gets "reset"
   }
 
-
   //Let's run on initial app load to see if token already exists (logged in -> closed browser -> came back)
   useEffect(() => {                 //  <==  ADD                                   
     authenticateUser();
   }, []);
-
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser }}>

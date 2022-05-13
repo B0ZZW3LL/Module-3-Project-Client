@@ -18,7 +18,6 @@ function App() {
         <Route path="/" element={<PublicPage><HomePage /></PublicPage>} />
         <Route path="/signup" element={<PublicPage><SignupPage /></PublicPage>} />
         <Route path="/login" element={<PublicPage><LoginPage /></PublicPage>} />
-        {/* <Route path="/manage" element={<ManagePage />} /> */}
         <Route path="/manage" element={<ProtectedPage><ManagePage /></ProtectedPage>} />
 
       </Routes>
