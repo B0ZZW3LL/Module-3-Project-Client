@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -50,7 +50,6 @@ function PantryCard({ name, _id, refreshPantries }) {
                 <Link to={`/manage/${_id}`}>
                   <button className="btn btn-outline-success">Manage</button>
                 </Link>  
-                {/* <button className="btn btn-outline-success">Manage</button> */}
                 <button className="btn btn-outline-success" onClick={() => {setIsEditing(true)}}>Change Name</button>
                 <button className="btn btn-outline-success" onClick={deletePantry}>Delete</button>
               </>

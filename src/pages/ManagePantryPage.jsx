@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 import ProductCard from '../components/product/ProductCard';
 
 
-const API_URL ="http://localhost:5005/pantry"
+const API_URL ="http://localhost:5005/pantry";
+
 
 function ManagePantryPage(props) {
   
@@ -24,6 +25,7 @@ function ManagePantryPage(props) {
       const pantryName = response.data.name;
       setProductsArray(productsReturned);
       setPantryName(pantryName);
+      console.log(response)
     })
     .catch((error) => console.log(error));
   };
@@ -40,7 +42,11 @@ function ManagePantryPage(props) {
     return(
       <div>
         <h1>Managing: {pantryName}</h1>
-        {productsArray && productsArray.map((product) => <ProductCard key={product._id} {...product} refreshProducts={getPantryProducts} />)}
+          <div className="container-fluid">
+            <div className="row">
+              {productsArray && productsArray.map((product) => <ProductCard key={product._id} {...product} refreshProducts={getPantryProducts} />)}
+            </div>
+          </div>
       </div>
   )}
 }

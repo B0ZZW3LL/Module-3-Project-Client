@@ -10,6 +10,7 @@ import ManagePantryPage from './pages/ManagePantryPage';
 
 import ProtectedPage from './components/ProtectedPage';
 import PublicPage from './components/PublicPage';
+import ProductDetailsPage from './pages/ProductDetailsPage';
  
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<PublicPage><LoginPage /></PublicPage>} />
         <Route path="/manage" element={<ProtectedPage><ManagePage /></ProtectedPage>} />
         <Route path="/manage/:pantryId" element={<ProtectedPage><ManagePantryPage /></ProtectedPage>} />
+        <Route path="/product/:productId" element={<ProtectedPage><ProductDetailsPage /></ProtectedPage>} />
 
       </Routes>
 

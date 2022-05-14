@@ -4,7 +4,9 @@ import { Container } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 
+
 const API_URL = "http://localhost:5005";
+
 
 function SignupPage() {
 

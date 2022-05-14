@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../context/auth.context';
 
+
 import Welcome from '../Welcome';
 import PantryCard from './PantryCard';
 import AddPantry from './AddPantry';
 
 
-const API_URL ="http://localhost:5005/pantry"
+const API_URL ="http://localhost:5005/pantry";
+
 
 function PantryList() {
 
@@ -34,9 +36,12 @@ function PantryList() {
   return ( 
     <div className='pantry-list'>
       <Welcome />
-      <h1>Pantry List Component...</h1>
       <AddPantry user={user} refreshPantries={getUserPantries}/>
-      { pantryArray && pantryArray.map((pantry) => <PantryCard key={pantry._id} {...pantry} refreshPantries={getUserPantries} />)}
+      <div className="container-fluid">
+        <div className="row">
+        { pantryArray && pantryArray.map((pantry) => <PantryCard key={pantry._id} {...pantry} refreshPantries={getUserPantries} />)}
+        </div>
+      </div>
     </div>
   )
 }

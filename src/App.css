@@ -63,21 +63,52 @@ button {
 }
 
 .pantry-list {
-  border: 6px solid black;
+
 }
 
 .addpantry {
-  border: 6px solid rgb(49, 26, 198);
+  margin-bottom: 1rem;
+
 }
 
 .welcome-component {
-  border: 4px solid red;
+
 }
 
 .card-title {
   color: rgba(130, 121, 121, 0.874)
 }
 
+.card-body {
+  color: rgba(252, 245, 245, 0.902)
+}
+
+.card-footer {
+  color: rgba(130, 121, 121, 0.874)
+}
+
+.container-fluid {
+  margin: 0rem 2rem;
+}
+
+.card-img-top {
+  max-width: 8rem;
+}
+
+.card-brand {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-qty {
+  display: flex;
+  text-align: center;
+}
+
+.card-qty input {
+  text-align: center;
+  margin: 0 1rem;
+}
 
 
 
