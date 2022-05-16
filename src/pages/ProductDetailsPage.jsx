@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 
+import Navbar from "../components/Navbar";
 import ProductDetailCard from "../components/product/ProductDetailCard";
 
 
@@ -32,6 +33,7 @@ function ProductDetailsPage() {
 
   return (
     <div>
+      <Navbar />
       <h1>Product Details Page</h1>
       <ProductDetailCard {...productDetail} />
     </div>

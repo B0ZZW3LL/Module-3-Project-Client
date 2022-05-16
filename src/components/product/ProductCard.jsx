@@ -17,7 +17,6 @@ function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
 
     axios.put(`${API_URL}/change/${_id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
-      console.log(response)
     })
     .catch((error) => console.log(error));
   }
@@ -28,15 +27,14 @@ function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
 
     axios.delete(`${API_URL}/remove/${_id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
-      console.log(response);
       refreshProducts();
     })
     .catch((error) => console.log(error));
   };
 
-  // useEffect(() => { 
-  //   updateProductQty(); 
-  // }, [productQty] );
+  useEffect(() => { 
+    updateProductQty(); 
+  }, [productQty] );
 
   return (
     <div className="card-dark bg-dark col-sm-8" style={{ maxWidth: '15rem' }}>
@@ -57,10 +55,10 @@ function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
         </div>
 
         <div className="card-qty">
-          <button className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty + 1)}> + </button>
-          <input type="number" className="form-control" name="productQty" value={productQty} />
+          <button type="button" className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty + 1)}> + </button>
+          <input type="number" className="form-control" name="productQty" value={productQty} onChange={updateProductQty} />
           {/* <input type="number" className="form-control" name="productQty" value={productQty} onChange={updateProductQty} /> */}
-          <button className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty - 1)}> - </button>
+          <button type="button" className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty - 1)}> - </button>
         </div>
 
       </div>

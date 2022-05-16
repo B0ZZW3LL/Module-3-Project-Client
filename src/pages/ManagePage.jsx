@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import PantryList from "../components/pantry/PantryList";
+import ProductList from "../components/product/ProductList";
 
 
 function ManagePage() {
@@ -8,6 +9,7 @@ function ManagePage() {
     <div>
       <Navbar />
       <PantryList />
+      <ProductList />
     </div>
   )
 }

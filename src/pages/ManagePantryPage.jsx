@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+// import { Navbar } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
+import Navbar from '../components/Navbar';
 import ProductCard from '../components/product/ProductCard';
 
 
@@ -36,11 +38,15 @@ function ManagePantryPage(props) {
 
   if (productsArray.length === 0) {
     return(
-      <h2>Pantry {pantryName} does not contain any products....</h2>
+      <div>
+        <Navbar />
+        <h2>Pantry {pantryName} does not contain any products....</h2>
+      </div>
     )
   } else {
     return(
       <div>
+        <Navbar />
         <h1>Managing: {pantryName}</h1>
           <div className="container-fluid">
             <div className="row">
