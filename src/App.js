@@ -11,6 +11,7 @@ import ManagePantryPage from './pages/ManagePantryPage';
 import ProtectedPage from './components/ProtectedPage';
 import PublicPage from './components/PublicPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
+import ProductListDetailsPage from './pages/ProductListDetailsPage';
  
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/manage" element={<ProtectedPage><ManagePage /></ProtectedPage>} />
         <Route path="/manage/:pantryId" element={<ProtectedPage><ManagePantryPage /></ProtectedPage>} />
         <Route path="/product/:productId" element={<ProtectedPage><ProductDetailsPage /></ProtectedPage>} />
+        <Route path="/products/:barcode_number" element={<ProtectedPage><ProductListDetailsPage /></ProtectedPage>} />
 
       </Routes>
 

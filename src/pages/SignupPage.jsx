@@ -54,7 +54,7 @@ function SignupPage() {
 
   return(
 
-    <div className='signup navbar-dark bg-dark'>
+    <div className='signup bg-dark'>
 
       <Container>
         
@@ -88,12 +88,12 @@ function SignupPage() {
 
         </form>
 
-        <h2>Or Login..</h2>
+        <h2 id="login">Or Login..</h2>
 
         
         <Link to="/login">
           <div className="d-grid gap-2 col-6 mx-auto">
-            <button className="btn btn-outline-success">Login</button>
+            <button id="login-btn" className="btn btn-outline-success">Login</button>
           </div>
         </Link>
        

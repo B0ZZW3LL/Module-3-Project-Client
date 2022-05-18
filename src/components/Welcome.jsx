@@ -10,7 +10,7 @@ function Welcome() {
     <div className='welcome-component'>
       { user && (
         <div>
-          <h2>Welcome, {user.displayName}</h2>
+          <h2><i>Welcome, {user.displayName}</i></h2>
         </div>
       )}
       { !user && (

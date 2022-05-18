@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../context/auth.context';
 
 import ProductListCard from "./ProductListCard";
+import SearchProduct from "./SearchProduct";
 
 const API_URL ="http://localhost:5005/pantry";
 const PRODUCT_API_URL = "http://localhost:8000";
@@ -12,11 +13,28 @@ function ProductList() {
 
   const [ isLoading, setIsLoading ] = useState(true);
   const [ productsArray, setProductsArray ] = useState([]);
+  const [ filteredProductArray, setFilteredProductArray ] = useState(productsArray);
   const [ pantryArray, setPantryArray ] = useState([]);
 
   const { user } = useContext(AuthContext);
 
   const storedToken = localStorage.getItem('authToken');
+
+  const filterByName = searchString => {
+    const filteredProducts = productsArray.filter(product => {
+      return product.title.toLowerCase().includes(searchString.toLowerCase());
+    });
+
+    setFilteredProductArray(filteredProducts);
+  }
+
+  const filterByBarcode = searchString => {
+    const filteredProducts = productsArray.filter(product => {
+      return product.barcode_number.includes(searchString);
+    });
+
+    setFilteredProductArray(filteredProducts);
+  }
 
   const getProducts = () => {
 
@@ -26,6 +44,7 @@ function ProductList() {
       const productsReturned = response.data;
       setProductsArray(productsReturned);
       setIsLoading(false);
+      setFilteredProductArray(productsReturned)
     })
     .catch((error) => console.log(error));
   }
@@ -48,9 +67,10 @@ function ProductList() {
   return (
     <div>
       <h1>Product Search Component</h1>
+        <SearchProduct nameSearch={filterByName} barcodeSearch={filterByBarcode}/>
         <div className="container-fluid">
               <div className="row">
-                {productsArray && productsArray.map((product) => <ProductListCard key={product.barcode_number} pantry={pantryArray} {...product} refreshProducts={getProducts} />)}
+                {filteredProductArray && filteredProductArray.map((product) => <ProductListCard key={product.barcode_number} pantry={pantryArray} {...product} refreshProducts={getProducts} />)}
               </div>
         </div>
     </div>

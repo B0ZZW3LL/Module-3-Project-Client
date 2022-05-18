@@ -19,7 +19,7 @@ function ProductListCard({ _id, barcode_number, images, title, brand, size, cate
     <div className="card-dark bg-dark col-sm-8" style={{ maxWidth: '15rem' }}>
 
       <div className="card-header">
-        <Link to={`/product/${_id}`}> 
+        <Link to={`/products/${barcode_number}`}> 
         <img src={images} alt="product img" className="card-img-top" />
         </Link>
       </div>

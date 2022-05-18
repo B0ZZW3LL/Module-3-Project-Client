@@ -5,7 +5,7 @@ import Welcome from "../components/Welcome";
 function HomePage() {
 
   return (
-    <div>
+    <div id="homepage">
       <Welcome />
       <SignupPage />
     </div>

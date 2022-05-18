@@ -44,8 +44,6 @@ function AddProduct({pantry, product}) {
 
   return(
     <div>
-      <p>{product.title}</p>
-   
       <div>
 
         <div>
@@ -57,7 +55,7 @@ function AddProduct({pantry, product}) {
         <div>
           <label htmlFor="pantryId">Pantry</label>
           <select name="pantryId"  id="pantryId" onChange={handleSelect}>
-            { pantry && pantry.map((pantry) => <option value={pantry._id}>{pantry.name}</option> )}
+            { pantry && pantry.map((pantry) => <option key={pantry._id} value={pantry._id}>{pantry.name}</option> )}
           </select>
         </div>
 
@@ -66,13 +64,8 @@ function AddProduct({pantry, product}) {
         </div>
 
       </div>
-
-
-
     </div>
-
   )
-
 }
 
 export default AddProduct;

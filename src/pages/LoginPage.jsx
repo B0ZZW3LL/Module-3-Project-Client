@@ -54,7 +54,7 @@ function Login() {
 
       <Welcome />
 
-      <div className='signup'>
+      <div className='signup bg-dark'>
 
         <Container>
           
@@ -73,7 +73,7 @@ function Login() {
             </div>
 
             <div className="d-grid gap-2 col-6 mx-auto">
-              <button type="submit" className="btn btn-primary">Login</button>
+              <button type="submit" className="btn btn-outline-success">Login</button>
             </div>
 
           </form>

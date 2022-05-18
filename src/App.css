@@ -17,41 +17,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .welcome-title {
   text-shadow: 8px 8px 8px rgba(0, 0, 255, 0.794);
   text-align: center;
@@ -74,16 +39,68 @@ button {
   height: 40px;
 }
 
-.pantry-list {
-
+.container {
+  padding: 2rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.541);
 }
 
-.addpantry {
+.container h2 {
+  color: white;
   margin-bottom: 1rem;
+}
 
+#login {
+  margin-top: 1rem;
+}
+
+#login-btn {
+  text-decoration: none;
+  list-style: none;
+}
+
+
+
+
+.navbar-brand {
+  margin-left: 1rem;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-right: 1rem;
+}
+
+.navbar-right p, a {
+  margin-right: 1rem;
+}
+
+#navbar-displayName {
+  color:white;
+  font-size: .8rem;
 }
 
 .welcome-component {
+  margin-top: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.addpantry {
+  margin-bottom: 1rem;
 
 }
 
