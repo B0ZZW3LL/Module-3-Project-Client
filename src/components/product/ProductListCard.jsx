@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom';
 
-function ProductListCard({ _id, barcode_number, images, title, brand, size, qty, refreshProducts }) {
+import AddProduct from './AddProduct';
+
+function ProductListCard({ _id, barcode_number, images, title, brand, size, category, description, manufacturer, qty, pantry, refreshProducts }) {
+
+  const product = {
+    image: images,
+    barcode_number: barcode_number,
+    title: title,
+    brand: brand, 
+    size: size,
+    category: category,
+    description: description,
+    manufacturer: manufacturer
+  }
 
   return (
     <div className="card-dark bg-dark col-sm-8" style={{ maxWidth: '15rem' }}>
@@ -21,6 +34,8 @@ function ProductListCard({ _id, barcode_number, images, title, brand, size, qty,
           <p>{brand}</p>
           <p>{size}</p>
         </div>
+
+        <AddProduct pantry={pantry} product={product} />
 
       </div>
 
