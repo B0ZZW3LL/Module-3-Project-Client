@@ -5,8 +5,8 @@ import { AuthContext } from '../../context/auth.context';
 import ProductListCard from "./ProductListCard";
 import SearchProduct from "./SearchProduct";
 
-const API_URL ="http://localhost:5005/pantry";
-const PRODUCT_API_URL = "http://localhost:8000";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
+const PRODUCT_API_URL = process.env.REACT_APP_PRODUCT_API_URL;
 
 
 function ProductList() {
@@ -51,7 +51,7 @@ function ProductList() {
 
   const getPantries = () => {
 
-    axios.get(`${API_URL}/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+    axios.get(`${BACKEND_API_URL}/pantry/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
     .then((response) => {
       const responseArray = response.data;
       setPantryArray(responseArray);

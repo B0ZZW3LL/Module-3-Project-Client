@@ -6,7 +6,8 @@ import { AuthContext } from '../context/auth.context';
 
 import Welcome from '../components/Welcome';
 
-const API_URL ="http://localhost:5005"
+
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function Login() {
@@ -34,7 +35,7 @@ function Login() {
       password: formState.password
     }
 
-    axios.post(`${API_URL}/auth/login`, body)
+    axios.post(`${BACKEND_API_URL}/auth/login`, body)
       .then(response => {
         console.log(response);
         console.log('JWT token', response.data.authToken );

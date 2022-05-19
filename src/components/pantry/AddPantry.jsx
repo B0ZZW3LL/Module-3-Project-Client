@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 
-const API_URL ="http://localhost:5005/pantry";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function AddPantry(props) {
@@ -10,6 +10,8 @@ function AddPantry(props) {
   const { refreshPantries, user } = props;
   const [ pantryName, setPantryName ] = useState('');
   const [ isCreating, setIsCreating ] = useState(false);
+
+  console.log(BACKEND_API_URL)
 
   const handleSubmit = (e) => {                       
     e.preventDefault();
@@ -19,7 +21,7 @@ function AddPantry(props) {
     const storedToken = localStorage.getItem('authToken');
 
     axios
-    .post(`${API_URL}/create`, requestBody, { headers: { Authorization: `Bearer ${storedToken}`} })
+    .post(`${BACKEND_API_URL}/pantry/create`, requestBody, { headers: { Authorization: `Bearer ${storedToken}`} })
     .then((response) => {
       refreshPantries();
       setPantryName('');

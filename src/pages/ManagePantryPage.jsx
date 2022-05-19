@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar';
 import ProductCard from '../components/product/ProductCard';
 
 
-const API_URL ="http://localhost:5005/pantry";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function ManagePantryPage(props) {
@@ -21,7 +21,7 @@ function ManagePantryPage(props) {
 
   const getPantryProducts = () => {
 
-    axios.get(`${API_URL}/manage/${pantryId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+    axios.get(`${BACKEND_API_URL}/pantry/manage/${pantryId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
     .then((response) => {
       const productsReturned = response.data.products;
       const pantryName = response.data.name;

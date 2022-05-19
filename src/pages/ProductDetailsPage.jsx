@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import ProductDetailCard from "../components/product/ProductDetailCard";
 
 
-const API_URL = "http://localhost:5005/product";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function ProductDetailsPage() {
@@ -19,7 +19,7 @@ function ProductDetailsPage() {
 
     const storedToken = localStorage.getItem('authToken')
 
-    axios.get(`${API_URL}/${productId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+    axios.get(`${BACKEND_API_URL}/product/${productId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
     .then(response => {
       const product = response.data
       setProductDetail(product)

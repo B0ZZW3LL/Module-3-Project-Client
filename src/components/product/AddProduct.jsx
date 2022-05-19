@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 
-const API_URL = "http://localhost:5005/product";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function AddProduct({pantry, product}) {
@@ -35,7 +35,7 @@ function AddProduct({pantry, product}) {
       pantryId: pantryId 
     }
 
-    axios.post(`${API_URL}/create`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.post(`${BACKEND_API_URL}/product/create`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       console.log(response)
       setIsAdding(false)

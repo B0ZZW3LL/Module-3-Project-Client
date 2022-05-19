@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-const API_URL ="http://localhost:5005/pantry";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function PantryCard({ name, _id, refreshPantries }) {
@@ -18,7 +18,7 @@ function PantryCard({ name, _id, refreshPantries }) {
     
     const requestBody = { pantryName };
 
-    axios.put(`${API_URL}/edit/${_id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.put(`${BACKEND_API_URL}/pantry/edit/${_id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       console.log(response);
       refreshPantries();
@@ -32,7 +32,7 @@ function PantryCard({ name, _id, refreshPantries }) {
 
     const storedToken = localStorage.getItem('authToken');
 
-    axios.delete(`${API_URL}/delete/${_id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.delete(`${BACKEND_API_URL}/pantry/delete/${_id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       console.log(response);
       refreshPantries();

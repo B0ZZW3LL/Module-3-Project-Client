@@ -8,7 +8,7 @@ import PantryCard from './PantryCard';
 import AddPantry from './AddPantry';
 
 
-const API_URL ="http://localhost:5005/pantry";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function PantryList() {
@@ -21,7 +21,7 @@ function PantryList() {
   
   const getUserPantries = () => {
 
-    axios.get(`${API_URL}/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+    axios.get(`${BACKEND_API_URL}/pantry/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
     .then((response) => {
       const responseArray = response.data;
       setPantryArray(responseArray);

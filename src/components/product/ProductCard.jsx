@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
-const API_URL = "http://localhost:5005/product";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
@@ -15,7 +15,7 @@ function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
     const storedToken = localStorage.getItem('authToken');
     const requestBody = { productQty }
 
-    axios.put(`${API_URL}/change/${_id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.put(`${BACKEND_API_URL}/product/change/${_id}`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
     })
     .catch((error) => console.log(error));
@@ -25,7 +25,7 @@ function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
 
     const storedToken = localStorage.getItem('authToken');
 
-    axios.delete(`${API_URL}/remove/${_id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+    axios.delete(`${BACKEND_API_URL}/product/remove/${_id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       refreshProducts();
     })

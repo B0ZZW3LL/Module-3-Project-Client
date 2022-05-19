@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/auth.context';
 
 
-const API_URL = "http://localhost:5005";
+const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
 function SignupPage() {
@@ -35,7 +35,7 @@ function SignupPage() {
       password: formState.password
     }
 
-    axios.post(`${API_URL}/auth/signup`, body)
+    axios.post(`${BACKEND_API_URL}/auth/signup`, body)
       .then(response => {
         console.log(response);
         storeToken(response.data.authToken);
