@@ -57,7 +57,6 @@ function ProductCard({ _id, image, title, brand, size, qty, refreshProducts }) {
         <div className="card-qty">
           <button type="button" className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty + 1)}> + </button>
           <input type="number" className="form-control" name="productQty" value={productQty} onChange={updateProductQty} />
-          {/* <input type="number" className="form-control" name="productQty" value={productQty} onChange={updateProductQty} /> */}
           <button type="button" className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty - 1)}> - </button>
         </div>
 

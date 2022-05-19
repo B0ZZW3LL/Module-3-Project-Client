@@ -18,27 +18,24 @@ function ProductListCard({ _id, barcode_number, images, title, brand, size, cate
   return (
     <div className="card-dark bg-dark col-sm-8" style={{ maxWidth: '15rem' }}>
 
-      <div className="card-header">
-        <Link to={`/products/${barcode_number}`}> 
-        <img src={images} alt="product img" className="card-img-top" />
-        </Link>
+      <div>
+        <div className="card-header">
+          <Link to={`/products/${barcode_number}`}> 
+          <img src={images} alt="product img" className="card-img-top" />
+          </Link>
+        </div>
       </div>
 
-      <div className="card-body">
-
-        <p className="card-title">{title}</p>
-
-        <p>Bardcode: {barcode_number}</p>
-
-        <div className="card-brand">
-          <p>{brand}</p>
-          <p>{size}</p>
+      <div>
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p>Bardcode: {barcode_number}</p>
         </div>
 
-        <AddProduct pantry={pantry} product={product} />
-
+        <div className='card-footer'>
+          <AddProduct pantry={pantry} product={product} />
+        </div>
       </div>
-
     </div>
 
   )

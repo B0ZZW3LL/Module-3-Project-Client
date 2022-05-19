@@ -29,45 +29,34 @@ function AddPantry(props) {
   }
 
   return(
-    <div>
+    <div className="addpantry">
 
       {!isCreating && 
-        <div className="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" className="btn btn-outline-success" onClick={() => {setIsCreating(!isCreating)}}>Create Pantry</button>
-        </div>
-      }
-
-      {isCreating && 
-        <div className="card-dark bg-dark col-sm-8" style={{ maxWidth: '15rem' }}>
-          <div className="card-body">
-            <form className="addpantry" onSubmit={handleSubmit}>
-              <div className="form-floating mb-3">
-                <input type="text" className="form-control" id="name" placeholder="Enter name" name="name" value={pantryName} onChange={(e) => setPantryName(e.target.value)} />
-                <label htmlFor="name"className="form-label">Pantry Name</label>
-              </div>
-              <div className="d-grid gap-2 col-6 mx-auto">
-                <button type="submit" className="btn btn-outline-success">Create</button>
-              </div>
-            </form>
+        <div className="addpantrybox">
+          <div className="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" className="btn btn-outline-success" onClick={() => {setIsCreating(!isCreating)}}>Create Pantry</button>
           </div>
         </div>
       }
 
-    </div>
+      {isCreating &&
+        <div className="addpantrybox bg-dark"> 
+            <div className="card-body">
+              <form className="createpantry" onSubmit={handleSubmit}>
+                <div className="form-floating mb-3">
+                  <input type="text" className="form-control" id="name" placeholder="Enter name" name="name" value={pantryName} onChange={(e) => setPantryName(e.target.value)} />
+                  <label htmlFor="name"className="form-label">Pantry Name</label>
+                </div>
+                <div className="d-grid gap-2 col-6 mx-auto">
+                  <button type="submit" className="btn btn-outline-success">Create</button>
+                </div>
+              </form>
+            </div>
+        </div>
+      }
 
-    // <form className="addpantry" onSubmit={handleSubmit}>  
-    //     <div className="form-floating mb-3">
-    //       <input type="text" className="form-control" id="name" placeholder="Enter name" name="name" value={pantryName} onChange={(e) => setPantryName(e.target.value)} />
-    //       <label htmlFor="name"className="form-label">Pantry Name</label>
-    //     </div>
-
-    //     <div className="d-grid gap-2 col-6 mx-auto">
-    //       <button type="submit" className="btn btn-outline-success">Create</button>
-    //     </div>
-
-    // </form>
+    </div>  
   )
-
 }
 
 export default AddPantry;

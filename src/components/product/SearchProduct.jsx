@@ -16,15 +16,13 @@ function SearchProduct(props) {
   }
 
   return (
-    <div>
-      <h1>Search Products</h1>
-
-      <div className="form-floating mb-3">
+    <div className='search bg-dark'>
+      <div className="form-floating">
         <input type="text" className="form-control" id="searchName" name="searchName" placeholder='searchName' value={nameSearchTerm} onChange={handleNameSearch} />
         <label htmlFor="searchName" className="form-label">Search Name</label>
       </div>
 
-      <div className="form-floating mb-3">
+      <div className="form-floating">
         <input type="text" className="form-control" id="searchBarcode" name="searchBarcode" placeholder='searchBarcode' value={barcodeSearchTerm} onChange={handleBarcodeSearch} />
         <label htmlFor="searchBarcode" className="form-label">Search Barcode</label>
       </div>

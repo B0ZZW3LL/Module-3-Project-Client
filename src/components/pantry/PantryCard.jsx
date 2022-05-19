@@ -48,7 +48,7 @@ function PantryCard({ name, _id, refreshPantries }) {
           { !isEditing ? (
               <>
                 <Link to={`/manage/${_id}`}>
-                  <button className="btn btn-outline-success">Manage</button>
+                  <button className="btn btn-outline-success manage">Manage</button>
                 </Link>  
                 <button className="btn btn-outline-success" onClick={() => {setIsEditing(true)}}>Change Name</button>
                 <button className="btn btn-outline-success" onClick={deletePantry}>Delete</button>

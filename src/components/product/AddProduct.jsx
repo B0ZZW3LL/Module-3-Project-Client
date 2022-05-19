@@ -21,6 +21,7 @@ function AddProduct({pantry, product}) {
   const createProduct = () => {
 
     const storedToken = localStorage.getItem('authToken');
+
     const requestBody = {
       image: product.image[0], 
       barcode_number: product.barcode_number, 
@@ -34,36 +35,45 @@ function AddProduct({pantry, product}) {
       pantryId: pantryId 
     }
 
-
     axios.post(`${API_URL}/create`, requestBody, { headers: { Authorization: `Bearer ${storedToken}` } })
     .then((response) => {
       console.log(response)
+      setIsAdding(false)
+      setProductQty(0)
     })
     .catch((error) => console.log(error));
   }
 
   return(
     <div>
-      <div>
 
+      {!isAdding && 
         <div>
+          <button className="btn btn-outline-success add" onClick={()=> setIsAdding(!isAdding)}>Add</button>
+        </div>
+      }
+      
+      {isAdding && <div className='addproduct'>
+
+        <div className='card-qty'>
             <button type="button" className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty + 1)}> + </button>
             <input type="number" className="form-control" name="productQty" value={productQty} />
             <button type="button" className="btn btn-outline-success" onClick={()=> setProductQty((productQty) => productQty - 1)}> - </button>
         </div>
 
         <div>
-          <label htmlFor="pantryId">Pantry</label>
           <select name="pantryId"  id="pantryId" onChange={handleSelect}>
-            { pantry && pantry.map((pantry) => <option key={pantry._id} value={pantry._id}>{pantry.name}</option> )}
+            { pantry && pantry.map((pantry) => <option key={pantry._id} value={pantry._id} selected>{pantry.name}</option> )}
           </select>
         </div>
 
         <div>
-          <button onClick={()=> createProduct()}>Add</button>
+          <button className="btn btn-outline-success add" onClick={()=> createProduct()}>Add</button>
         </div>
 
       </div>
+      }
+
     </div>
   )
 }

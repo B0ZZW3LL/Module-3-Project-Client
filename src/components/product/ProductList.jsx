@@ -66,13 +66,12 @@ function ProductList() {
 
   return (
     <div>
-      <h1>Product Search Component</h1>
-        <SearchProduct nameSearch={filterByName} barcodeSearch={filterByBarcode}/>
-        <div className="container-fluid">
-              <div className="row">
-                {filteredProductArray && filteredProductArray.map((product) => <ProductListCard key={product.barcode_number} pantry={pantryArray} {...product} refreshProducts={getProducts} />)}
-              </div>
-        </div>
+      <SearchProduct nameSearch={filterByName} barcodeSearch={filterByBarcode}/>
+      <div className="container-fluid">
+            <div className="row">
+              {filteredProductArray && filteredProductArray.map((product) => <ProductListCard key={product.barcode_number} pantry={pantryArray} {...product} refreshProducts={getProducts} />)}
+            </div>
+      </div>
     </div>
   )
 

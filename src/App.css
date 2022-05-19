@@ -58,9 +58,6 @@ button {
   list-style: none;
 }
 
-
-
-
 .navbar-brand {
   margin-left: 1rem;
 }
@@ -84,6 +81,80 @@ button {
 .welcome-component {
   margin-top: 1rem;
 }
+
+.addpantry {
+  display: flex;
+  justify-content: center;
+}
+
+.addpantrybox {
+  width: 400px;
+}
+
+.container-fluid {
+  justify-content: center;
+}
+
+.row {
+  justify-content: center;
+}
+
+.card-dark {
+  margin: .5rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.541);
+}
+
+.search {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem .5rem;
+}
+
+.search input {
+  margin: 0;
+  padding: 0;
+}
+
+.addproduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#pantryId {
+  padding: 6px 12px;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  border-radius: .25rem;
+  width: 150px;
+}
+
+.add {
+  padding: 0;
+  margin: 0;
+  width:150px;
+}
+
+.card-dark {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body {
+  /* padding: 0; */
+}
+
+.card-body h5 {
+  font-size: .85rem;
+}
+
+.card-body p {
+  font-size: .75rem;
+}
+
 
 
 
@@ -116,9 +187,7 @@ button {
   color: rgba(130, 121, 121, 0.874)
 }
 
-.container-fluid {
-  margin: 0rem 2rem;
-}
+
 
 .card-img-top {
   max-width: 8rem;
