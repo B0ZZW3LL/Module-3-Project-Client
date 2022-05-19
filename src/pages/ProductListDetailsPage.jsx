@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 import ProductDetailCard from "../components/product/ProductDetailCard";
 
 
-const PRODUCT_API_URL = "http://localhost:8000";
+const PRODUCT_API_URL = process.env.REACT_APP_PRODUCT_API_URL
 
 
 function ProductListDetailsPage() {
