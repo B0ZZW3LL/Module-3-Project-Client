@@ -11,8 +11,6 @@ function AddPantry(props) {
   const [ pantryName, setPantryName ] = useState('');
   const [ isCreating, setIsCreating ] = useState(false);
 
-  console.log(BACKEND_API_URL)
-
   const handleSubmit = (e) => {                       
     e.preventDefault();
     

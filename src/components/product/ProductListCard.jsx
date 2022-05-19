@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import AddProduct from './AddProduct';
 
-function ProductListCard({ _id, barcode_number, images, title, brand, size, category, description, manufacturer, qty, pantry, refreshProducts }) {
+function ProductListCard({ _id, barcode_number, images, title, brand, size, category, description, manufacturer, qty, refreshProducts }) {
 
   const product = {
     image: images,
@@ -33,7 +33,7 @@ function ProductListCard({ _id, barcode_number, images, title, brand, size, cate
         </div>
 
         <div className='card-footer'>
-          <AddProduct pantry={pantry} product={product} />
+          <AddProduct product={product} />
         </div>
       </div>
     </div>

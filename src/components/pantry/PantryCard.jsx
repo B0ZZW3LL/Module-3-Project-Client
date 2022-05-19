@@ -43,7 +43,7 @@ function PantryCard({ name, _id, refreshPantries }) {
   return (
     <div className="card-dark bg-dark" style={{ maxWidth: '18rem' }}>
         <div className="card-body">
-          <h5 className="card-title">{name}</h5>
+          <h5 id="pantrytitle" className="card-title">{name}</h5>
           <div className="d-grid gap-2 col-8 mx-auto">
           { !isEditing ? (
               <>

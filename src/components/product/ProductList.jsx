@@ -49,19 +49,8 @@ function ProductList() {
     .catch((error) => console.log(error));
   }
 
-  const getPantries = () => {
-
-    axios.get(`${BACKEND_API_URL}/pantry/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
-    .then((response) => {
-      const responseArray = response.data;
-      setPantryArray(responseArray);
-    })
-    .catch((error) => console.log(error));
-  };
-
   useEffect(() => { 
-    getProducts();
-    getPantries(); 
+    getProducts(); 
   }, [] );
 
   return (
@@ -69,7 +58,7 @@ function ProductList() {
       <SearchProduct nameSearch={filterByName} barcodeSearch={filterByBarcode}/>
       <div className="container-fluid">
             <div className="row">
-              {filteredProductArray && filteredProductArray.map((product) => <ProductListCard key={product.barcode_number} pantry={pantryArray} {...product} refreshProducts={getProducts} />)}
+              {filteredProductArray && filteredProductArray.map((product) => <ProductListCard key={product.barcode_number} {...product} refreshProducts={getProducts} />)}
             </div>
       </div>
     </div>

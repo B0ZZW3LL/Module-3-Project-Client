@@ -149,26 +149,17 @@ button {
 
 .card-body h5 {
   font-size: .85rem;
+  margin: 0;
+}
+
+#pantrytitle {
+  font-size: 1.5rem;
+  margin:0;
 }
 
 .card-body p {
   font-size: .75rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .addpantry {
   margin-bottom: 1rem;
@@ -176,18 +167,16 @@ button {
 }
 
 .card-title {
-  color: rgba(130, 121, 121, 0.874)
+  color: rgba(130, 121, 121, 0.874);
 }
 
 .card-body {
-  color: rgba(252, 245, 245, 0.902)
+  color: rgba(252, 245, 245, 0.902);
 }
 
 .card-footer {
-  color: rgba(130, 121, 121, 0.874)
+  color: rgba(130, 121, 121, 0.874);
 }
-
-
 
 .card-img-top {
   max-width: 8rem;

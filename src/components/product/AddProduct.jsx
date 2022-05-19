@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../../context/auth.context';
 
 
 const BACKEND_API_URL = process.env.REACT_APP_BACKEND_URL;
 
 
-function AddProduct({pantry, product}) {
+function AddProduct({product}) {
 
   const [ isAdding, setIsAdding ] = useState(false);
 
@@ -13,9 +14,25 @@ function AddProduct({pantry, product}) {
 
   const [ pantryId, setPantryId ] = useState('');
 
+  const [ pantry, setPantry ] = useState([]);
+
+  const { user } = useContext(AuthContext);
+
+  const storedToken = localStorage.getItem('authToken');
+
   const handleSelect = e => {
     setPantryId(e.target.value);
     console.log("selected",e.target.value);
+  };
+
+  const getPantries = () => {
+
+    axios.get(`${BACKEND_API_URL}/pantry/${user._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+    .then((response) => {
+      const responseArray = response.data;
+      setPantry(responseArray);
+    })
+    .catch((error) => console.log(error));
   };
 
   const createProduct = () => {
@@ -49,7 +66,10 @@ function AddProduct({pantry, product}) {
 
       {!isAdding && 
         <div>
-          <button className="btn btn-outline-success add" onClick={()=> setIsAdding(!isAdding)}>Add</button>
+          <button className="btn btn-outline-success add" onClick={()=> {
+            setIsAdding(!isAdding)
+            getPantries();
+            }}>Add</button>
         </div>
       }
       
@@ -62,8 +82,8 @@ function AddProduct({pantry, product}) {
         </div>
 
         <div>
-          <select name="pantryId"  id="pantryId" onChange={handleSelect}>
-            { pantry && pantry.map((pantry) => <option key={pantry._id} value={pantry._id} selected>{pantry.name}</option> )}
+          <select name="pantryId"  id="pantryId" onSelect={handleSelect} onChange={handleSelect}>
+            { pantry && pantry.map((pantry) => <option key={pantry._id} value={pantry._id}>{pantry.name}</option> )}
           </select>
         </div>
 
