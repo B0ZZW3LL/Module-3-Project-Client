@@ -2,8 +2,6 @@ function ProductDetailCard({ image, images, barcode_number, title, brand, size, 
 
   return(
     <div>
-      <h1>Product Detail Component</h1>
-
       <div className="card-header">
 
           {image && <img src={image} alt="product img" className="card-img-top" /> }

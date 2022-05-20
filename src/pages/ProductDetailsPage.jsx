@@ -34,7 +34,6 @@ function ProductDetailsPage() {
   return (
     <div>
       <Navbar />
-      <h1>Product Details Page</h1>
       <ProductDetailCard {...productDetail} />
     </div>
   )
