@@ -15,6 +15,8 @@ function Login() {
   const navigate = useNavigate();
 
   const { storeToken, authenticateUser } = useContext(AuthContext)
+
+  const [errorMessage, setErrorMessage] = useState(undefined);
   
   const [ formState, setFormState ] = useState({
     email:'',
@@ -47,7 +49,11 @@ function Login() {
         })
         navigate('/manage');
       })
-      .catch(error => console.log(error))
+      .catch((error) => {
+        console.log(error)
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      })
   }
 
   return(
@@ -76,6 +82,8 @@ function Login() {
             <div className="d-grid gap-2 col-6 mx-auto">
               <button type="submit" className="btn btn-outline-success">Login</button>
             </div>
+
+            { errorMessage && <p className="error-message">{errorMessage}</p> }
 
           </form>
 
